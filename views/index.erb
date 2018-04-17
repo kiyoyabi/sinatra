@@ -1,0 +1,13 @@
+<h1>My BBS</h1>
+<ul>
+  <% @comments.each do |comment| %>
+    <li>
+      <%= Rack::Utils.escape_html(comment.body) %>
+      <span class="delete">[x]</span>
+    </li>
+  <% end %>
+</ul>
+<form action="/create" method="post">
+  <input type="text" name="body">
+  <input type="submit" value="Add comment">
+</form>
