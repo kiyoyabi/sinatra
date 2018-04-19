@@ -1,16 +1,15 @@
-<!--共通のレイアウト-->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <title><%= @title %></title>
-    <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <div class="container">
+<div class="container">
   <%= yield %>
-  </div>
-  <script src="/public/js/jquery_google.js"></script>
-  <script src="/public/js/main.js"></script>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

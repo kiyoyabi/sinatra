@@ -1,6 +1,22 @@
-require '/usr/local/lib/ruby/gems/2.5.0/gems/sinatra-2.0.1/lib/sinatra.rb'
+require 'sinatra'
 require 'sinatra/reloader'
 require 'active_record'
+require 'rack/csrf'
+
+use Rack::Session::Cookie,secret:"thisissomethingsecret"
+use Rack::Csrf, raise:true
+
+helpers do
+  def csrf_tag
+    Rack::Csrf.csrf_tag(env)
+  end
+  def csrf_token
+    Rack::Csrf.csrf_token(env)
+  end
+  def h(str)
+    Rack::Utils.escape_html(str)
+  end
+end
 
 ActiveRecord::Base.establish_connection(
     adapter: 'sqlite3',
